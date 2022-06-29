@@ -1,37 +1,72 @@
-/* body {
-    background-color: black;
+#device-name {
+	width: 300px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
 }
 
-div {
-    margin-top: 35px;
+#device-name:focus {
+	border: 3px solid #555;
+}
+
+
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #7DBD80, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.buttons {
+    margin: 10%;
     text-align: center;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-p {
-    font-size: 15em;
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-button {
-    width: 50%;
-    height: 500px;
-    font-size: 18em;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
-    background-color: #555555;
-    border-width: 8px;
-} */
+
 table {
     border-collapse: collapse;
-    background-color: beige;
+    background-color: white;
     border: 2pt solid black;
+	width: 500px;
+	height: 100%;
 }  
 
 tr {
     border-bottom: 2pt solid black;
 }
+
+
 
 /* ================================= 
   Navigation Bar
@@ -67,6 +102,11 @@ a {
     height: 4em;
 }
 
+label {
+	font-size: 1.45em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 .logo {
 	margin: 0;
 	font-size: 1.45em;
@@ -90,10 +130,21 @@ a {
 }
 
 .main-nav a:hover {
-	color: #718daa;
+	color: #000;
 }
 
+.search-page {
+	margin-top: 4%;
+}
 
+.search-map-form {
+	margin: 0px 20px;
+}
+
+.map-search-field {
+	margin-bottom: 4%;
+	padding-left: 5%;
+}
 
 .header {
     width: 100%;
@@ -109,6 +160,13 @@ a {
 	border-radius: 5px;
 }
 
+.search-results {
+	width: 100%;
+	display: flex;
+	/* important */
+	align-items: stretch;
+	justify-content: space-around;
+}
 
 /* ================================= 
   Media Queries
@@ -131,17 +189,26 @@ a {
 
 }
 
+@media (max-width: 1024px) {
+	.search-results  {
+		flex-direction: column;
+		width: 100%;
+	}
+}
+
 @media (min-width: 1025px) {
 	.header {
 		flex-direction: row;
 	}
     .main-nav {
-        padding-left: 30%;
-        float: right;
+		position: absolute;
+        right:0;
     }
+	.search-results  {
+		flex-direction: row;
+	}
 
 }
 /* ================================= 
   End Navigation Bar
 ==================================== */
-
