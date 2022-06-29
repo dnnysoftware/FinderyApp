@@ -508,7 +508,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-bc6b33c2c4aecde3_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-d7202cf9c078c359_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
