@@ -26,6 +26,7 @@
     transition: all .4s ease-in-out;
 }
 
+
 .btn-hover:focus {
     outline: none;
 }
@@ -55,15 +56,24 @@
 
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
     background-color: white;
     border: 2pt solid black;
+	border-radius:25px;
 	width: 500px;
 	height: 100%;
 }  
 
 tr {
     border-bottom: 2pt solid black;
+}
+
+td {
+	text-align: left;
+}
+
+th {
+	text-align: left;
 }
 
 

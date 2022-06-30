@@ -78,7 +78,6 @@ fn app() -> Html {
                 <button {onclick}>{ "+1" }</button>
                 <p>{state.value}</p>
             </div>
-
         </div>
        </>
     }
