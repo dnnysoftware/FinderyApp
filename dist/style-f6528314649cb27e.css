@@ -223,3 +223,16 @@ label {
 /* ================================= 
   End Navigation Bar
 ==================================== */
+
+/* ================================= 
+  Map
+==================================== */
+.map-search-field {
+	float: left;
+}
+
+.search-results {
+	height: 100%;
+	font-size: 25px;
+	border-radius: 20px;
+}

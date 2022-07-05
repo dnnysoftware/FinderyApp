@@ -7,3 +7,4 @@ export function clearMapSearch() {
     document.getElementById("search-life-result").value = "";
     document.getElementById("search-time-result").value = "";
 }
+
