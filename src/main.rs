@@ -33,11 +33,11 @@ fn build_device(name: &String) -> device::Device{
 
 }
 
-fn search(name: String){
+async fn search(name: String)-> Result<device::Device, mongodb::error::Error>{
 
     //before we get data
 
-    let mut _dev = build_device(&name);
+    let mut dev = build_device(&name);
 
     //after we get data
 
@@ -50,12 +50,13 @@ fn search(name: String){
 
     //finds correct entry
     let filter = doc!{"TrackerID": dev.device_ID};
-    let find_options = FindOptions::builder().build(self);
+    let find_options = FindOptions::builder().build();
     let mut cursor = collection.find(filter, find_options).await?;
 
     //pick out the coordinate fields
-    let table_entry: Vec<i32> = unwrap_or_else(cursor);
-    dev.coordinates = (table_entry[1].parse::<f32>().unwrap(), table_entry[2].parse::<f32>().unwrap())
+    let table_entry: Vec<i32> = unwrap.or_else(cursor);
+    dev.coordinates = (table_entry[1].parse::<f32>().unwrap(), table_entry[2].parse::<f32>().unwrap());
+    Ok(dev)
 
 }
 
