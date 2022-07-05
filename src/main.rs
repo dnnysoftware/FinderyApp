@@ -19,7 +19,7 @@ fn build_device(name: &String) -> device::Device{
 
     device::Device {
 
-        device_name: ["Looking for ", &name].concat(),
+        device_name: ["Looking for ", &name, "... "].concat(),
         description: String::from("Searching..."),
         coordinates: (0f32,0f32),
         battery_life:(0f32),
@@ -33,7 +33,7 @@ fn search(name: String){
 
     //before we get data
 
-    let mut dev = build_device(&name);
+    let mut _dev = build_device(&name);
 
     //after we get data
 

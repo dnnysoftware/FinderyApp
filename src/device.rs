@@ -1,6 +1,7 @@
 use std::time::SystemTime;
 
-pub struct Device{
+pub struct Device
+{
     pub device_name: String,
     pub description: String,
     pub coordinates: (f32, f32),
