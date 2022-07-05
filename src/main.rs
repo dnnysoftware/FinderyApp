@@ -2,6 +2,10 @@ use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
 use std::time::SystemTime;
+use mongodb::{Client, options::ClientOptions};
+use mongodb::bson::{doc, Document};
+use futures::stream::TryStreamExt;
+use mongodb::{bson::doc, options::FindOptions};
 
 mod device;
 
@@ -24,7 +28,7 @@ fn build_device(name: &String) -> device::Device{
         coordinates: (0f32,0f32),
         battery_life:(0f32),
         time: SystemTime::now(), //until actual device data after
-
+        device_ID: 1, //Hard coded for now
     }
 
 }
@@ -36,6 +40,22 @@ fn search(name: String){
     let mut dev = build_device(&name);
 
     //after we get data
+
+    //connects to mongodb
+    let mut client_options = ClientOptions::parse("mongodb+srv://FinderyApp:FinderyApp@cluster0.f6fjujq.mongodb.net/?retryWrites=true&w=majority").await?;
+    client_options.app_name = Some("FinderyApp".to_string()); // probably needs to change "Some" but I am not sure
+    let client = Client::with_options(client_options)?;
+    let db = client.database("FinderyApp");
+    let collection = db.collection<Document>("Modules");
+
+    //finds correct entry
+    let filter = doc!{"TrackerID": device_ID};
+    let find_options = FindOptions::builder().sort().build();
+    let mut cursor = typed_collection.find(filter, find_options).await?;
+
+    //pick out the coordinate fields
+    let table_entry: Vec<i32> = unwrap_or_else(cursor);
+    dev.coordinates = (table_entry[1].parse::<f32>().unwrap(), table_entry[2].parse::<f32>().unwrap())
 
 }
 
