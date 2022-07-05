@@ -5,6 +5,7 @@ use std::time::SystemTime;
 use mongodb::{Client, options::ClientOptions};
 use mongodb::bson::{doc, Document};
 use mongodb::options::FindOptions;
+use mongodb::cursor::Cursor;
 
 mod device;
 
@@ -50,10 +51,10 @@ async fn search(name: String)-> Result<device::Device, mongodb::error::Error>{
     //finds correct entry
     let filter = doc!{"TrackerID": dev.device_ID};
     let find_options = FindOptions::builder().build();
-    let mut cursor = collection.find(filter, find_options).await?;
+    let mut curs = collection.find(filter, find_options).await?;
 
     //pick out the coordinate fields
-    let table_entry: Vec<String> = cursor.unwrap();
+    let table_entry: Vec<String> = curs.unwrap();
     dev.coordinates = (table_entry[2].parse::<f32>().unwrap(), table_entry[3].parse::<f32>().unwrap());
     Ok(dev)
 
