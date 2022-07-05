@@ -4,7 +4,7 @@ use wasm_bindgen::prelude::*;
 use std::time::SystemTime;
 use mongodb::{Client, options::ClientOptions};
 use mongodb::bson::{doc, Document};
-use mongodb::bson::options::FindOptions;
+use mongodb::options::FindOptions;
 
 mod device;
 
