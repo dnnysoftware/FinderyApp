@@ -4,10 +4,18 @@ struct Model {
     value: i64
 }
 
+struct Thing {
+    device: String
+}
+
 #[function_component(App)]
 fn app() -> Html {
     let state = use_state(|| Model{
         value: 0
+    });
+
+    let state_device = use_state(|| Thing{
+        device: String::from("Wallet")
     });
 
     let onclick = {
@@ -50,7 +58,7 @@ fn app() -> Html {
                         <table>
                             <tr>
                                 <th>{"Device Name:"}</th>
-                                <td>{"Thing"}</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>{"Description:"}</th>
