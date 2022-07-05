@@ -8,12 +8,10 @@ extern "C" {
     fn clearMapSearch();
 }
 
-
-
 #[function_component(App)]
 fn app() -> Html {
     
-    let thing = Callback::from(|_|{
+    let clear = Callback::from(|_|{
         clearMapSearch();
     });
 
@@ -42,9 +40,9 @@ fn app() -> Html {
             <div class="search-page">
                 <div class="map-search-field">
                     <label class="search-map-form" for="device-name">{"SEARCH DEVICE:"}</label>
-                    <input ref={input_ref_outer.clone()} class="search-map-form" type="text" id="device-name" name="device-search-box" value="Thing"/>
+                    <input ref={input_ref_outer.clone()} class="search-map-form" type="text" id="device-name" name="device-search-box"/>
                     <button class="search-map-form btn-hover color-5" id="search-device-btn" name="search-device-btn" {onclick}>{"Search"}</button>
-                    <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data" onclick={thing}>{"Clear"}</button>    
+                    <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data" onclick={clear}>{"Clear"}</button>    
                 </div>
                 <div class="search-results">
                     <div class="mapping search-block">
@@ -54,27 +52,27 @@ fn app() -> Html {
                         <table>
                             <tr>
                                 <th>{"Device Name:"}</th>
-                                <td></td>
+                                <td><input id="search-name-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Description:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-desc-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Latitude:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-lat-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Longitude:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-long-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Battery Life:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-life-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Time Stamp:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-time-result" type="text"/></td>
                             </tr>
                         </table>
                     </div>
@@ -87,5 +85,4 @@ fn app() -> Html {
 
 fn main() {
     yew::start_app::<App>();
-   
 }
