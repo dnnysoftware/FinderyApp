@@ -1,24 +1,28 @@
 use yew::prelude::*;
+use web_sys::HtmlInputElement;
+use wasm_bindgen::prelude::*;
 
-struct Model {
-    value: i64
+
+#[wasm_bindgen(module = "/js/devicemap.js")]
+extern "C" {
+    fn clearMapSearch();
 }
 
 #[function_component(App)]
 fn app() -> Html {
-    let state = use_state(|| Model{
-        value: 0
+    
+    let clear = Callback::from(|_|{
+        clearMapSearch();
     });
 
-    let onclick = {
-        let state = state.clone();
+    let input_ref = NodeRef::default();
+    let input_ref_outer = input_ref.clone();
+    let onclick = Callback::from(move |_| {
+        let input = input_ref.cast::<HtmlInputElement>().unwrap();
+        let device_name = input.value();
 
-        Callback::from(move |_| {
-            state.set(Model {
-                value: state.value + 1
-            })
-        })
-    };
+        web_sys::console::log_1(&device_name.into());
+    });
 
     html! {
         <>
@@ -35,12 +39,10 @@ fn app() -> Html {
 	        </header> 
             <div class="search-page">
                 <div class="map-search-field">
-                    <form id="search-device-form" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <label class="search-map-form" for="device-name">{"SEARCH DEVICE:"}</label>
-                        <input class="search-map-form" type="text" id="device-name" name="device-search-box"/>
-                        <button class="search-map-form btn-hover color-5" id="search-device-btn" name="search-device-btn">{"Search"}</button>
-                        <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data">{"Clear"}</button>
-                    </form>
+                    <label class="search-map-form" for="device-name">{"SEARCH DEVICE:"}</label>
+                    <input ref={input_ref_outer.clone()} class="search-map-form" type="text" id="device-name" name="device-search-box"/>
+                    <button class="search-map-form btn-hover color-5" id="search-device-btn" name="search-device-btn" {onclick}>{"Search"}</button>
+                    <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data" onclick={clear}>{"Clear"}</button>    
                 </div>
                 <div class="search-results">
                     <div class="mapping search-block">
@@ -50,35 +52,32 @@ fn app() -> Html {
                         <table>
                             <tr>
                                 <th>{"Device Name:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-name-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Description:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-desc-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Latitude:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-lat-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Longitude:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-long-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Battery Life:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-life-result" type="text"/></td>
                             </tr>
                             <tr>
                                 <th>{"Time Stamp:"}</th>
-                                <td>{"Thing"}</td>
+                                <td><input id="search-time-result" type="text"/></td>
                             </tr>
                         </table>
                     </div>
                 </div>
-                <button {onclick}>{ "+1" }</button>
-                <p>{state.value}</p>
             </div>
-
         </div>
        </>
     }
