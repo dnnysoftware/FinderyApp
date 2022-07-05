@@ -208,7 +208,7 @@ function makeClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_18(arg0, arg1, arg2) {
-    wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hdd45418ae612d86b(arg0, arg1, addHeapObject(arg2));
+    wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hcea3055d7e36585a(arg0, arg1, addHeapObject(arg2));
 }
 
 let cachedUint32Memory0;
@@ -508,7 +508,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-cb9feb01d83dd65_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-a6e0e026efaf9a0f_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
