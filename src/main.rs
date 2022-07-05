@@ -1,6 +1,9 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
+// use router::Router;
+// use yew_router::prelude::*;
+
 
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
@@ -16,7 +19,7 @@ fn app() -> Html {
 
     });
 
-    let map_url: &str;
+    let _map_url: &str;
 
     let input_ref = NodeRef::default();
     let input_ref_outer = input_ref.clone();
