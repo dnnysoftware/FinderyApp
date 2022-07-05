@@ -54,7 +54,7 @@ fn search(name: String){
     let mut cursor = collection.find(filter, find_options).await?;
 
     //pick out the coordinate fields
-    let table_entry: Vec<i32> = unwrap_or_else(cursor);
+    let table_entry: Vec<i32> = unwrap.or_else(cursor);
     dev.coordinates = (table_entry[1].parse::<f32>().unwrap(), table_entry[2].parse::<f32>().unwrap())
 
 }
