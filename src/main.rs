@@ -4,8 +4,7 @@ use wasm_bindgen::prelude::*;
 use std::time::SystemTime;
 use mongodb::{Client, options::ClientOptions};
 use mongodb::bson::{doc, Document};
-use futures::stream::TryStreamExt;
-use mongodb::{bson::doc, options::FindOptions};
+use mongodb::bson::options::FindOptions;
 
 mod device;
 
@@ -54,8 +53,8 @@ async fn search(name: String)-> Result<device::Device, mongodb::error::Error>{
     let mut cursor = collection.find(filter, find_options).await?;
 
     //pick out the coordinate fields
-    let table_entry: Vec<i32> = unwrap.or_else(cursor);
-    dev.coordinates = (table_entry[1].parse::<f32>().unwrap(), table_entry[2].parse::<f32>().unwrap());
+    let table_entry: Vec<String> = cursor.unwrap();
+    dev.coordinates = (table_entry[2].parse::<f32>().unwrap(), table_entry[3].parse::<f32>().unwrap());
     Ok(dev)
 
 }
