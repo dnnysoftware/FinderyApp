@@ -1,15 +1,42 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
+use std::time::SystemTime;
 
-//Structs
-mod Device;
-mod User;
-
+mod device;
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
     fn clearMapSearch();
+}
+
+#[wasm_bindgen(module = "/js/devicemap.js")]
+extern "C"{
+    fn getDeviceFromSearch();
+}
+
+fn build_device(name: &String) -> device::Device{
+
+    device::Device {
+
+        device_name: ["Looking for ", &name].concat(),
+        description: String::from("Searching..."),
+        coordinates: (0f32,0f32),
+        battery_life:(0f32),
+        time: SystemTime::now(), //until actual device data after
+
+    }
+
+}
+
+fn search(name: String){
+
+    //before we get data
+
+    let mut dev = build_device(&name);
+
+    //after we get data
+
 }
 
 #[function_component(App)]
@@ -18,6 +45,11 @@ fn app() -> Html {
     let clear = Callback::from(|_|{
         clearMapSearch();
     });
+
+    //let search = Callback::from(|_|{
+    //    getDeviceFromSearch();            //todo
+    //});
+
 
     let input_ref = NodeRef::default();
     let input_ref_outer = input_ref.clone();
