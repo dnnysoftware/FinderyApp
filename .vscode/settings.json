@@ -2,9 +2,14 @@
     "cSpell.ignoreWords": [
         "Findery",
         "bindgen",
+        "cdylib",
+        "devicemap",
         "enctype",
         "iframe",
         "onclick",
         "yeet"
+    ],
+    "cSpell.words": [
+        "finderyapp"
     ]
 }

@@ -1,32 +1,30 @@
 use yew::prelude::*;
+use web_sys::HtmlInputElement;
+use wasm_bindgen::prelude::*;
 
-struct Model {
-    value: i64
+
+#[wasm_bindgen(module = "/js/devicemap.js")]
+extern "C" {
+    fn clearMapSearch();
 }
 
-struct Thing {
-    device: String
-}
+
 
 #[function_component(App)]
 fn app() -> Html {
-    let state = use_state(|| Model{
-        value: 0
+    
+    let thing = Callback::from(|_|{
+        clearMapSearch();
     });
 
-    let state_device = use_state(|| Thing{
-        device: String::from("Wallet")
+    let input_ref = NodeRef::default();
+    let input_ref_outer = input_ref.clone();
+    let onclick = Callback::from(move |_| {
+        let input = input_ref.cast::<HtmlInputElement>().unwrap();
+        let device_name = input.value();
+
+        web_sys::console::log_1(&device_name.into());
     });
-
-    let onclick = {
-        let state = state.clone();
-
-        Callback::from(move |_| {
-            state.set(Model {
-                value: state.value + 1
-            })
-        })
-    };
 
     html! {
         <>
@@ -43,12 +41,10 @@ fn app() -> Html {
 	        </header> 
             <div class="search-page">
                 <div class="map-search-field">
-                    <form id="search-device-form" method="post" enctype="multipart/form-data" autocomplete="off">
-                        <label class="search-map-form" for="device-name">{"SEARCH DEVICE:"}</label>
-                        <input class="search-map-form" type="text" id="device-name" name="device-search-box"/>
-                        <button class="search-map-form btn-hover color-5" id="search-device-btn" name="search-device-btn">{"Search"}</button>
-                        <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data">{"Clear"}</button>
-                    </form>
+                    <label class="search-map-form" for="device-name">{"SEARCH DEVICE:"}</label>
+                    <input ref={input_ref_outer.clone()} class="search-map-form" type="text" id="device-name" name="device-search-box" value="Thing"/>
+                    <button class="search-map-form btn-hover color-5" id="search-device-btn" name="search-device-btn" {onclick}>{"Search"}</button>
+                    <button class="search-map-form btn-hover color-5" id="clear-map-data" name="clear-map-data" onclick={thing}>{"Clear"}</button>    
                 </div>
                 <div class="search-results">
                     <div class="mapping search-block">
@@ -83,8 +79,6 @@ fn app() -> Html {
                         </table>
                     </div>
                 </div>
-                <button {onclick}>{ "+1" }</button>
-                <p>{state.value}</p>
             </div>
         </div>
        </>
@@ -93,4 +87,5 @@ fn app() -> Html {
 
 fn main() {
     yew::start_app::<App>();
+   
 }
