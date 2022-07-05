@@ -7,4 +7,6 @@ pub struct Device
     pub coordinates: (f32, f32),
     pub battery_life: f32,
     pub time: SystemTime,
+    pub device_ID: i32,
+
 }
