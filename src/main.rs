@@ -2,6 +2,10 @@ use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
 
+//Structs
+mod Device;
+mod User;
+
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
