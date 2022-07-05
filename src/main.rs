@@ -46,12 +46,12 @@ fn search(name: String){
     client_options.app_name = Some("FinderyApp".to_string()); // probably needs to change "Some" but I am not sure
     let client = Client::with_options(client_options)?;
     let db = client.database("FinderyApp");
-    let collection = db.collection<Document>("Modules");
+    let collection = db.collection::<Document>("Modules");
 
     //finds correct entry
-    let filter = doc!{"TrackerID": device_ID};
-    let find_options = FindOptions::builder().sort().build();
-    let mut cursor = typed_collection.find(filter, find_options).await?;
+    let filter = doc!{"TrackerID": dev.device_ID};
+    let find_options = FindOptions::builder().build(self);
+    let mut cursor = collection.find(filter, find_options).await?;
 
     //pick out the coordinate fields
     let table_entry: Vec<i32> = unwrap_or_else(cursor);
