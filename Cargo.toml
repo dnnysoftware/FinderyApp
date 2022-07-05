@@ -22,6 +22,6 @@ features = [
 ]
 
 [dependencies.mongodb]
-version = "2.2.2"
+version = "2.2.0"
 default-features = false
 features = ["async-std-runtime"]
