@@ -25,6 +25,8 @@ fn build_device(name: &String) -> device::Device{
     }
 }
 
+
+
 #[function_component(App)]
 fn app() -> Html {
     
@@ -32,7 +34,7 @@ fn app() -> Html {
         clearMapSearch();
     });
 
-    let map_url: &str;
+    let mut map_url: String = "".to_owned();
 
     let input_ref = NodeRef::default();
     let input_ref_outer = input_ref.clone();
@@ -42,8 +44,9 @@ fn app() -> Html {
         let derived_device = build_device(&device_name);
         let lat = derived_device.coordinates.0;
         let long = derived_device.coordinates.1;
-        map_url = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
-        web_sys::console::log_1(&device_name.into());
+        let map_url_string: &str = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
+        map_url.push_str(map_url_string);
+        //web_sys::console::log_1(&device_name.into());
     });
 
     html! {
