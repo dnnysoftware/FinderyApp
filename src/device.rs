@@ -6,7 +6,7 @@ pub struct Device
     pub description: String,
     pub coordinates: (f32, f32),
     pub battery_life: f32,
-    pub time: SystemTime,
+    pub time: String,
     pub device_ID: i32,
 
 }

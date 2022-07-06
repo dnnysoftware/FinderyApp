@@ -475,8 +475,8 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper832 = function(arg0, arg1, arg2) {
-        const ret = makeClosure(arg0, arg1, 132, __wbg_adapter_18);
+    imports.wbg.__wbindgen_closure_wrapper839 = function(arg0, arg1, arg2) {
+        const ret = makeClosure(arg0, arg1, 133, __wbg_adapter_18);
         return addHeapObject(ret);
     };
     imports['./snippets/finderyapp-21dac3f81e495f66/js/devicemap.js'] = __wbg_star0;
@@ -513,7 +513,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-f68488b5a938c6de_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-3ab83337ad3d3a27_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

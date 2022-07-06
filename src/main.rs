@@ -1,7 +1,6 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
-use std::time::SystemTime;
 // use router::Router;
 // use yew_router::prelude::*;
 
@@ -20,7 +19,7 @@ fn build_device(name: &String) -> device::Device{
         description: String::from("This is my wallet and it's very important to me"),
         coordinates: (43.1566,-77.6088),
         battery_life:(74.0),
-        time: SystemTime::now(), //until actual device data after
+        time: String::from("07-05-2022 10:32"), //until actual device data after
         device_ID: 1, //Hard coded for now
     }
 }
@@ -34,7 +33,7 @@ fn app() -> Html {
         clearMapSearch();
     });
 
-    let mut map_url: String = "".to_owned();
+    let map_url: &str = "";
 
     let input_ref = NodeRef::default();
     let input_ref_outer = input_ref.clone();
@@ -44,9 +43,9 @@ fn app() -> Html {
         let derived_device = build_device(&device_name);
         let lat = derived_device.coordinates.0;
         let long = derived_device.coordinates.1;
-        let map_url_string: &str = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
-        map_url.push_str(map_url_string);
-        //web_sys::console::log_1(&device_name.into());
+        let map_url_string: String = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
+        let url_together = format!("{}{}", map_url, map_url_string);
+        web_sys::console::log_1(&url_together.into());
     });
 
     html! {
