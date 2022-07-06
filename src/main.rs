@@ -1,12 +1,33 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
+use std::collections::VecDeque;
 use std::time::SystemTime;
 use mongodb::{Client, options::ClientOptions};
-use mongodb::bson::{doc, Document};
-use mongodb::options::FindOptions;
+use mongodb::bson::{doc, Document, self};
+use mongodb::options::{FindOptions, ReadPreference};
 
 mod device;
+
+pub struct Cursor {
+    // The client to read from.
+    client: Client,
+    // The namespace to read and write from.
+    namespace: String,
+    // How many documents to fetch at a given time from the server.
+    batch_size: i32,
+    // Uniquely identifies the cursor being returned by the reply.
+    cursor_id: i64,
+    // An upper bound on the total number of documents this cursor should return.
+    limit: i32,
+    // How many documents have been returned so far.
+    count: i32,
+    // A cache for documents received from the query that have not yet been returned.
+    buffer: VecDeque<bson::Document>,
+    read_preference: ReadPreference,
+    //cmd_type: CommandType,
+}
+
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
@@ -51,13 +72,19 @@ async fn search(name: String)-> Result<device::Device, mongodb::error::Error>{
     let filter = doc!{"TrackerID": dev.device_ID};
     let find_options = FindOptions::builder().build();
     let mut cursor = collection.find(filter, find_options).await?;
-
     //pick out the coordinate fields
-    let table_entry: Vec<String> = cursor.unwrap();
-    dev.coordinates = (table_entry[2].parse::<f32>().unwrap(), table_entry[3].parse::<f32>().unwrap());
+
+    let mut i = 0;
+
+    let mut tempCoord = (0f32, 0f32);
+
+    dev.coordinates = tempCoord;
+
+
     Ok(dev)
 
 }
+
 
 #[function_component(App)]
 fn app() -> Html {
