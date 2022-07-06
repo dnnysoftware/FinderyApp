@@ -8,7 +8,7 @@ export function clearMapSearch() {
     document.getElementById("search-time-result").value = "";
 }
 
-export function updateMap(url_together, device_name, long, lat, description, battery_life, time) {
+export function updateMap(url_together, device_name, lat, long, description, battery_life, time) {
     var map = document.getElementById("mapping-structure");
     map.innerHTML = "";
     var temp = `<iframe id="map-visual" width="500" height="450" frameborder="5" scrolling="yes" marginheight="0" marginwidth="0" src="${url_together}" />`

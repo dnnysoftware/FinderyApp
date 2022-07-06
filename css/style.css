@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
 #device-name {
 	width: 300px;
 	padding: 12px 20px;
@@ -77,6 +79,32 @@ th {
 	text-align: left;
 }
 
+td, th {
+	font-family: 'Questrial', sans-serif;
+}
+
+iframe {
+	border: 2px solid #000;
+	border-radius: 25px;
+}
+
+body {
+    background: linear-gradient(-45deg, #7DBD80, #ffffff, #ffffff, #7DBD80);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 
 /* ================================= 
@@ -89,6 +117,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
 	margin: 0;
+	margin-bottom: 2%;
 	min-height: 100vh;
 }
 ul {
@@ -130,6 +159,7 @@ label {
 .logo a,
 .main-nav a {
 	padding: 10px 20px;
+	font-family: 'Questrial', sans-serif;
 	text-transform: uppercase;
 	text-align: center;
 	display: block;
@@ -150,6 +180,7 @@ label {
 
 .search-map-form {
 	margin: 0px 20px;
+	font-family: 'Questrial', sans-serif;
 }
 
 .map-search-field {
@@ -235,4 +266,8 @@ label {
 	height: 100%;
 	font-size: 25px;
 	border-radius: 20px;
+}
+
+#search-desc-result {
+	font-size: 15px;
 }

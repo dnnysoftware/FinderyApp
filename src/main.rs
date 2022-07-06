@@ -11,7 +11,7 @@ fn build_device(name: &String) -> device::Device{
     device::Device {
 
         device_name: name.to_string(),
-        description: String::from("This is my wallet and it's very important to me"),
+        description: String::from("This is my wallet and it's very important"),
         coordinates: (43.1566,-77.6088),
         battery_life:(74.0),
         time: String::from("07-05-2022 10:32"), //until actual device data after
@@ -22,7 +22,7 @@ fn build_device(name: &String) -> device::Device{
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
     fn clearMapSearch();
-    fn updateMap(url_together: String, device_name: String, long: f32, lat: f32, description: String, battery_life: f32, time: String);
+    fn updateMap(url_together: String, device_name: String, lat: f32, long: f32, description: String, battery_life: f32, time: String);
 }
 
 
