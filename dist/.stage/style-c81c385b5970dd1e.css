@@ -1,0 +1,225 @@
+#device-name {
+	width: 300px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-radius: 20px;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+}
+
+#device-name:focus {
+	border: 3px solid #555;
+}
+
+
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #7DBD80, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+table {
+    border-collapse: separate;
+    background-color: white;
+    border: 2pt solid black;
+	border-radius:25px;
+	width: 500px;
+	height: 100%;
+}  
+
+tr {
+    border-bottom: 2pt solid black;
+}
+
+td {
+	text-align: left;
+}
+
+th {
+	text-align: left;
+}
+
+
+
+/* ================================= 
+  Navigation Bar
+==================================== */
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	min-height: 100vh;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+h2,
+h3,
+a {
+	color: #ffffff;
+}
+
+a {
+	text-decoration: none;
+}
+
+#findery-logo {
+    width: 4em;
+    height: 4em;
+}
+
+label {
+	font-size: 1.45em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+	margin: 0;
+	font-size: 1.45em;
+}
+
+.main-nav {
+	margin-top: 5px;
+
+}
+.logo a,
+.main-nav a {
+	padding: 10px 20px;
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+}
+
+.main-nav a {
+	color: #ffffff;
+	font-size: .99em;
+}
+
+.main-nav a:hover {
+	color: #000;
+}
+
+.search-page {
+	margin-top: 4%;
+}
+
+.search-map-form {
+	margin: 0px 20px;
+}
+
+.map-search-field {
+	margin-bottom: 4%;
+	padding-left: 5%;
+}
+
+.header {
+    width: 100%;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #7DBD80;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.search-results {
+	width: 100%;
+	display: flex;
+	/* important */
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+
+
+
+@media (min-width: 769px) {
+	.header,
+	.main-nav {
+		display: flex;
+	}
+	.header {
+		flex-direction: row;
+		align-items: center;
+        width: 100%;
+        margin: 0 auto;
+	}
+
+}
+
+@media (max-width: 1024px) {
+	.search-results  {
+		flex-direction: column;
+		width: 100%;
+	}
+}
+
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+	}
+    .main-nav {
+		position: absolute;
+        right:0;
+    }
+	.search-results  {
+		flex-direction: row;
+	}
+
+}
+/* ================================= 
+  End Navigation Bar
+==================================== */

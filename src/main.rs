@@ -1,14 +1,28 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
+use std::time::SystemTime;
 // use router::Router;
 // use yew_router::prelude::*;
 
-
+mod device;
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
     fn clearMapSearch();
+}
+
+fn build_device(name: &String) -> device::Device{
+
+    device::Device {
+
+        device_name: name.to_string(),
+        description: String::from("This is my wallet and it's very important to me"),
+        coordinates: (43.1566,-77.6088),
+        battery_life:(74.0),
+        time: SystemTime::now(), //until actual device data after
+        device_ID: 1, //Hard coded for now
+    }
 }
 
 #[function_component(App)]
@@ -16,20 +30,19 @@ fn app() -> Html {
     
     let clear = Callback::from(|_|{
         clearMapSearch();
-
     });
 
-    let _map_url: &str;
+    let map_url: &str;
 
     let input_ref = NodeRef::default();
     let input_ref_outer = input_ref.clone();
     let onclick = Callback::from(move |_| {
         let input = input_ref.cast::<HtmlInputElement>().unwrap();
         let device_name = input.value();
-        //let derived_device = device.search();
-        //let lat = derived_device.coordinates[0];
-        //let long = derived_device.coordinates[1];
-        //map_url = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
+        let derived_device = build_device(&device_name);
+        let lat = derived_device.coordinates.0;
+        let long = derived_device.coordinates.1;
+        map_url = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
         web_sys::console::log_1(&device_name.into());
     });
 
