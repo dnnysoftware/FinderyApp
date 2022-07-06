@@ -273,11 +273,14 @@ async function load(module, imports) {
 function getImports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_updateMap_3b95c3c8f73a4e81 = function(arg0, arg1) {
+    imports.wbg.__wbg_updateMap_3b95c3c8f73a4e81 = function(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10) {
         try {
-            updateMap(getStringFromWasm0(arg0, arg1));
+            updateMap(getStringFromWasm0(arg0, arg1), getStringFromWasm0(arg2, arg3), arg4, arg5, getStringFromWasm0(arg6, arg7), arg8, getStringFromWasm0(arg9, arg10));
         } finally {
             wasm.__wbindgen_free(arg0, arg1);
+            wasm.__wbindgen_free(arg2, arg3);
+            wasm.__wbindgen_free(arg6, arg7);
+            wasm.__wbindgen_free(arg9, arg10);
         }
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
@@ -518,7 +521,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-441419b0a5c2e8dd_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-55f1e6f9cf838245_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

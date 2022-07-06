@@ -6,12 +6,6 @@ use wasm_bindgen::prelude::*;
 
 mod device;
 
-#[wasm_bindgen(module = "/js/devicemap.js")]
-extern "C" {
-    fn clearMapSearch();
-    fn updateMap(url_together: String);
-}
-
 fn build_device(name: &String) -> device::Device{
 
     device::Device {
@@ -23,6 +17,12 @@ fn build_device(name: &String) -> device::Device{
         time: String::from("07-05-2022 10:32"), //until actual device data after
         device_id: 1, //Hard coded for now
     }
+}
+
+#[wasm_bindgen(module = "/js/devicemap.js")]
+extern "C" {
+    fn clearMapSearch();
+    fn updateMap(url_together: String, device_name: String, long: f32, lat: f32, description: String, battery_life: f32, time: String);
 }
 
 
@@ -46,7 +46,7 @@ fn app() -> Html {
         let long = derived_device.coordinates.1;
         let map_url_string: String = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
         let url_together = format!("{}{}", map_url, map_url_string);
-        updateMap(url_together);
+        updateMap(url_together, derived_device.device_name, derived_device.coordinates.0, derived_device.coordinates.1 , derived_device.description, derived_device.battery_life, derived_device.time);
         
     });
 
