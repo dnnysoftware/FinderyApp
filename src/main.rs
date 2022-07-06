@@ -9,6 +9,7 @@ mod device;
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
     fn clearMapSearch();
+    fn updateMap(url_together: String);
 }
 
 fn build_device(name: &String) -> device::Device{
@@ -20,7 +21,7 @@ fn build_device(name: &String) -> device::Device{
         coordinates: (43.1566,-77.6088),
         battery_life:(74.0),
         time: String::from("07-05-2022 10:32"), //until actual device data after
-        device_ID: 1, //Hard coded for now
+        device_id: 1, //Hard coded for now
     }
 }
 
@@ -45,7 +46,8 @@ fn app() -> Html {
         let long = derived_device.coordinates.1;
         let map_url_string: String = format!("https://maps.google.com/maps?q={},{}&hl=en&z=14&amp;output=embed", lat, long);
         let url_together = format!("{}{}", map_url, map_url_string);
-        web_sys::console::log_1(&url_together.into());
+        updateMap(url_together);
+        
     });
 
     html! {
@@ -69,8 +71,8 @@ fn app() -> Html {
                     <button class="search-map-form btn-hover search-btn color-5" id="clear-map-data" name="clear-map-data" onclick={clear}>{"Clear"}</button>    
                 </div>
                 <div class="search-results">
-                    <div class="mapping search-block">
-                        <iframe width="500" height="450" frameborder="5" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=43.1566,-77.6088&t=&z=15&ie=UTF8&iwloc=&output=embed" />
+                    <div id="mapping-structure" class="mapping search-block">
+                        <iframe id="map-visual" width="500" height="450" frameborder="5" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=40.7128,-74.0060&t=&z=15&ie=UTF8&iwloc=&output=embed" />
                     </div>
                     <div class="gps-data-output-table search-block">
                         <table>

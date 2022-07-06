@@ -1,4 +1,4 @@
-use std::time::SystemTime;
+
 
 pub struct Device
 {
@@ -7,6 +7,6 @@ pub struct Device
     pub coordinates: (f32, f32),
     pub battery_life: f32,
     pub time: String,
-    pub device_ID: i32,
+    pub device_id: i32,
 
 }
