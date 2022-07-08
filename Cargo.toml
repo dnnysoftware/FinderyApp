@@ -9,8 +9,8 @@ edition = "2021"
 [dependencies]
 yew = "^0.19"
 wasm-bindgen = "0.2"
-router = "0.6.0"
-yew-router = "0.16.0"
+cursor = "2"
+futures = "0.3"
 
 [dependencies.web-sys] 
 version = "0.3"
@@ -21,3 +21,8 @@ features = [
     'Node',
     'Window',
 ]
+
+[dependencies.mongodb]
+version = "2.2.0"
+default-features = false
+features = ["async-std-runtime"]
