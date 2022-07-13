@@ -1,10 +1,21 @@
 use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
-// use router::Router;
-// use yew_router::prelude::*;
+use yew_router::prelude::*;
+
 
 mod device;
+
+#[derive(Clone, Routable, PartialEq)]
+enum Route {
+    #[at("/")]
+    Home,
+    #[at("/about")]
+    About,
+    #[not_found]
+    #[at("/404")]
+    NotFound,
+}
 
 fn build_device(name: &String) -> device::Device{
 

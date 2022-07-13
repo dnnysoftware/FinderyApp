@@ -4,6 +4,10 @@ use yew::prelude::*;
 pub fn about() -> Html {
     
     html! {
-
+        <>
+            <div>
+                <h1>{"HELLO"}</h1>
+            </div>
+        </>
     }
 }
