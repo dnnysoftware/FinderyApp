@@ -128,6 +128,27 @@ fn devices() -> Html {
                 </ul>
 	        </header> 
             <div class="device-main">
+                <h1 class="device-title">{"Add Device"}</h1>
+                <div class="add-a-device">
+                    <form>
+                        <div class="device-naming-block">
+                            <label class="add-device-input" for="device-name-add">{"Device Name:"}</label>
+                            <input class="add-device-input device-input" id="device-name-add" name="device-name-add" type="text"/>
+                            <label class="add-device-input" for="device-hash-add">{"Identification Hash:"}</label>
+                            <input class="add-device-input device-input" id="device-hash-add" name="device-hash-add" type="text"/>
+                        </div>
+                        <div class="device-desc-block">
+                            <label class="add-device-input" for="device-description-add">{"Device Description:"}</label>
+                            <textarea class="add-device-input device-input" id="device-description-add" name="device-description-add" rows="4" cols="50">{""}</textarea>
+                        </div>
+                        <div class="device-submit-block">
+                            <button class="btn-hover search-btn color-5">{"Add Device"}</button>
+                        </div>
+                    </form>
+                </div>
+                <h1 class="device-title">{"My Devices"}</h1>
+                <div class="my-devices">
+                </div>
             </div>
         </div>
         </>

@@ -579,7 +579,7 @@ function getImports() {
         const ret = makeClosure(arg0, arg1, 396, __wbg_adapter_20);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper8606 = function(arg0, arg1, arg2) {
+    imports.wbg.__wbindgen_closure_wrapper8607 = function(arg0, arg1, arg2) {
         const ret = makeMutClosure(arg0, arg1, 417, __wbg_adapter_23);
         return addHeapObject(ret);
     };
@@ -617,7 +617,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-d6b51e141f67a8cf_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-69c7acab8c8d9d68_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
