@@ -62,6 +62,30 @@ fn about() -> Html {
             <div class="about-main">
                 <h1 id="about-title">{"About Us"}</h1>
                 <div class="about-content">
+                    <div class="circle-about-logo">
+                        <img id="findery-logo-about" src="white-logo.png" alt="Logo"/>
+                    </div>
+                    <div class="about-info">
+                        <h3 class="about-text" id="company-name">{"Findery - Foundry Digital LLC."}</h3>
+                        <h3 class="about-text" id="company-address">{"350 East Ave SUITE 201, Rochester, NY 14604"}</h3>
+                        <p class="about-text" id="company-summary">{"The groundbreaking blockchain geopositional solution, tasked to help you 
+                        find your belongings in any environmenet worldwide. You don’t need bluetooth or WiFi only the people’s network.
+                        Helium & Findery allows you to find your items over long distances while providing a environmentally friendly 
+                        approach for server-side tracking.
+                        "}</p>
+                    </div>
+                    <div class="about-circle-info">
+                        <div class="circle-about-data">
+                        </div>
+                        <div class="circle-about-data">
+                        </div>
+                        <div class="circle-about-data">
+                        </div>
+                        <div class="circle-about-data">
+                        </div>
+                        <div class="circle-about-data">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

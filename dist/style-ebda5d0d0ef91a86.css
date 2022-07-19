@@ -127,7 +127,7 @@ ul {
 }
 
 
-h3,
+
 a {
 	color: #ffffff;
 }
@@ -278,4 +278,77 @@ label {
 
 #about-title {
 	text-align: center;
+}
+
+.about-content {
+	width: 90vw;
+    height: 50vw;
+	background-color: #7DBD80;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 0;
+}
+
+.circle-about-logo {
+	position: relative;
+	width: 10vw;
+	height: 10vw;
+	background: #FEB729;
+    border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	top: 20px;
+	
+}
+
+#findery-logo-about {
+	width: 10vw;
+    height: 10vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.about-text {
+	color: #fff;
+	text-align: center;
+}
+
+#company-name {
+	position: relative;
+	font-size: 1.5vw;
+	top: 20px;
+}
+
+#company-address {
+	position: relative;
+	font-size: 1.2vw;
+	top: 10px;
+}
+
+#company-summary {
+	position: relative;
+	font-size: 1.4vw;
+	top: 10px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.about-circle-info {
+	position: relative;
+	top: 40px;
+	display: flex;
+    justify-content: space-between;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.circle-about-data {
+	position: relative;
+	width: 12vw;
+	height: 12vw;
+	background: #fff;
+	border-bottom: 9pt solid #FEB729;
+    border-radius: 50%;
+	cursor: pointer;
+  	
 }
