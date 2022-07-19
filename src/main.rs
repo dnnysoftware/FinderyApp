@@ -3,15 +3,16 @@ use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
 use yew_router::prelude::*;
 
-
 mod device;
 
-#[derive(Clone, Routable, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq, Routable)]
 enum Route {
     #[at("/")]
     Home,
     #[at("/about")]
     About,
+    #[at("/devices")]
+    Devices,
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -36,11 +37,70 @@ extern "C" {
     fn updateMap(url_together: String, device_name: String, lat: f32, long: f32, description: String, battery_life: f32, time: String);
 }
 
+#[function_component(About)]
+fn about() -> Html {
+    let history_about = use_history().unwrap();
+    let history_home = use_history().unwrap();
+    let history_device = use_history().unwrap();
 
+    let about_callback = Callback::from(move |_| history_about.push(Route::About));
+    let track_callback = Callback::from(move |_| history_home.push(Route::Home));
+    let device_callback = Callback::from(move |_| history_device.push(Route::Devices));
+    html! {
+        <>
+        <div>
+            <header class="header">
+                <img id="findery-logo" src="white-logo.png" alt="Logo"/>
+		        <h1 class="logo"><a href="#">{"Findery"}</a></h1>
+                <ul class="main-nav">
+                    <li><a onclick={device_callback}>{"Add A Device"}</a></li>
+                    <li><a onclick={track_callback}>{"Track Device"}</a></li>
+                    <li><a onclick={about_callback}>{"About"}</a></li>
+                    <li><a>{"Profile"}</a></li>
+                </ul>
+	        </header> 
+            <div class="about-main">
+                <h1 id="about-title">{"About Us"}</h1>
+                <div class="about-content">
+                </div>
+            </div>
+        </div>
+        </>
+    }
+}
 
-#[function_component(App)]
-fn app() -> Html {
-    
+#[function_component(Devices)]
+fn devices() -> Html {
+    let history_about = use_history().unwrap();
+    let history_home = use_history().unwrap();
+    let history_device = use_history().unwrap();
+
+    let about_callback = Callback::from(move |_| history_about.push(Route::About));
+    let track_callback = Callback::from(move |_| history_home.push(Route::Home));
+    let device_callback = Callback::from(move |_| history_device.push(Route::Devices));
+    html! {
+        <>
+        <div>
+            <header class="header">
+                <img id="findery-logo" src="white-logo.png" alt="Logo"/>
+		        <h1 class="logo"><a href="#">{"Findery"}</a></h1>
+                <ul class="main-nav">
+                    <li><a onclick={device_callback}>{"Add A Device"}</a></li>
+                    <li><a onclick={track_callback}>{"Track Device"}</a></li>
+                    <li><a onclick={about_callback}>{"About"}</a></li>
+                    <li><a>{"Profile"}</a></li>
+                </ul>
+	        </header> 
+            <div class="device-main">
+            </div>
+        </div>
+        </>
+    }
+}
+
+#[function_component(Home)]
+fn home() -> Html {
+
     let clear = Callback::from(|_|{
         clearMapSearch();
     });
@@ -61,17 +121,24 @@ fn app() -> Html {
         
     });
 
-    html! {
+    let history_about = use_history().unwrap();
+    let history_home = use_history().unwrap();
+    let history_device = use_history().unwrap();
+
+    let about_callback = Callback::from(move |_| history_about.push(Route::About));
+    let track_callback = Callback::from(move |_| history_home.push(Route::Home));
+    let device_callback = Callback::from(move |_| history_device.push(Route::Devices));
+     html! {
         <>
         <div>
             <header class="header">
                 <img id="findery-logo" src="white-logo.png" alt="Logo"/>
 		        <h1 class="logo"><a href="#">{"Findery"}</a></h1>
                 <ul class="main-nav">
-                    <li><a href="#">{"Add A Device"}</a></li>
-                    <li><a href="#">{"Track Device"}</a></li>
-                    <li><a href="#">{"About"}</a></li>
-                    <li><a href="#">{"Profile"}</a></li>
+                    <li><a onclick={device_callback}>{"Add A Device"}</a></li>
+                    <li><a onclick={track_callback}>{"Track Device"}</a></li>
+                    <li><a onclick={about_callback}>{"About"}</a></li>
+                    <li><a>{"Profile"}</a></li>
                 </ul>
 	        </header> 
             <div class="search-page">
@@ -117,6 +184,31 @@ fn app() -> Html {
             </div>
         </div>
        </>
+     }
+}
+
+fn switch(routes: &Route) -> Html {
+    match routes {
+        Route::Home => html! { 
+            <Home />
+        },
+        Route::About => html! {
+            <About />
+        },
+        Route::Devices => html! {
+            <Devices />
+        },
+        Route::NotFound => html! { <h1>{ "404" }</h1> },
+    }
+}
+
+
+#[function_component(App)]
+fn app() -> Html {
+    html! {
+        <BrowserRouter>
+            <Switch<Route> render={Switch::render(switch)} />
+        </BrowserRouter>
     }
 }
 

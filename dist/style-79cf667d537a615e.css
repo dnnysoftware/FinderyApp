@@ -114,7 +114,7 @@ body {
 	box-sizing: border-box;
 }
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Questrial', sans-serif;
 	line-height: 1.6;
 	margin: 0;
 	margin-bottom: 2%;
@@ -127,7 +127,6 @@ ul {
 }
 
 
-h2,
 h3,
 a {
 	color: #ffffff;
@@ -270,4 +269,13 @@ label {
 
 #search-desc-result {
 	font-size: 15px;
+}
+
+
+/* ================================= 
+  About Page
+==================================== */
+
+#about-title {
+	text-align: center;
 }
