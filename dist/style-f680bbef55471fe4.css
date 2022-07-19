@@ -385,9 +385,7 @@ label {
 ==================================== */
 
 .add-a-device {
-	position: relative;
 	width: 88vw;
-	height: 30vw;
 	border: 2pt solid black;
 	border-radius: 25px;
 	margin-left: auto;
@@ -415,6 +413,78 @@ label {
 }
 
 .device-naming-block {
-	display: inline-block;
-  	vertical-align: top;
+	margin-top: 3%;
+	margin-left: 6%;
 }
+
+.device-element {
+	display: inline-block;
+}
+
+.device-inp-crit {
+	display: flex;
+	flex-direction: column;
+	align-content: space-between;
+}
+
+.device-desc-crit {
+	display: flex;
+	flex-direction: column;
+	align-content: space-between;
+}
+
+.device-desc-block {
+	margin-left: 4%;
+}
+
+.device-submit-block {
+	position: relative;
+	margin-left: 4%;
+	display: inline-block; 
+	align-items: center;
+  	justify-content: center;
+}
+
+
+
+.my-devices {
+	width: 88vw;
+	height: 22vw;
+	border: 2pt solid black;
+	border-radius: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.device-entry {
+	position: relative;
+	margin-top: 1%;
+	width: 98%;
+	height: 6vw;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2pt solid black;
+	border-radius: 25px;
+	background-color: #FEB7298C;
+
+}
+
+.remove {
+	color: #000;
+	position: absolute;
+	float: right;
+	right: 2%;
+	top: 10%; 
+	font-size: 3vw;
+	opacity: 0.6;
+  }
+  .remove:hover {
+	opacity: 1;
+  }
+  
+.device-entry-info {
+	position: relative;
+	vertical-align: middle;
+	margin-left: 2%;
+	font-size: 2vw;
+  }

@@ -60,7 +60,7 @@ fn about() -> Html {
                 </ul>
 	        </header> 
             <div class="about-main">
-                <h1 id="about-title">{"About Us"}</h1>
+                <h1 id="about-title">{"ABOUT US"}</h1>
                 <div class="about-content">
                     <div class="circle-about-logo">
                         <img id="findery-logo-about" src="white-logo.png" alt="Logo"/>
@@ -128,26 +128,38 @@ fn devices() -> Html {
                 </ul>
 	        </header> 
             <div class="device-main">
-                <h1 class="device-title">{"Add Device"}</h1>
+                <h1 class="device-title">{"ADD DEVICE"}</h1>
                 <div class="add-a-device">
-                    <form>
-                        <div class="device-naming-block">
-                            <label class="add-device-input" for="device-name-add">{"Device Name:"}</label>
-                            <input class="add-device-input device-input" id="device-name-add" name="device-name-add" type="text"/>
-                            <label class="add-device-input" for="device-hash-add">{"Identification Hash:"}</label>
-                            <input class="add-device-input device-input" id="device-hash-add" name="device-hash-add" type="text"/>
+                    <form class="add-device-form">
+                        <div class="device-naming-block device-element">
+                            <label class="add-device-input device-inp-crit" for="device-name-add">{"DEVICE NAME:"}</label>
+                            <input class="add-device-input device-input device-inp-crit" id="device-name-add" name="device-name-add" type="text"/>
+                            <label class="add-device-input device-inp-crit" for="device-hash-add">{"IDENTIFICATION HASH:"}</label>
+                            <input class="add-device-input device-input device-inp-crit" id="device-hash-add" name="device-hash-add" type="text"/>
                         </div>
-                        <div class="device-desc-block">
-                            <label class="add-device-input" for="device-description-add">{"Device Description:"}</label>
-                            <textarea class="add-device-input device-input" id="device-description-add" name="device-description-add" rows="4" cols="50">{""}</textarea>
+                        <div class="device-desc-block device-element">
+                            <label class="add-device-input device-desc-crit" for="device-description-add">{"DEVICE DESCRIPTION:"}</label>
+                            <textarea class="add-device-input device-input device-desc-crit" id="device-description-add" name="device-description-add" rows="4" cols="50">{""}</textarea>
                         </div>
-                        <div class="device-submit-block">
+                        <div class="device-submit-block device-element">
                             <button class="btn-hover search-btn color-5">{"Add Device"}</button>
                         </div>
                     </form>
                 </div>
-                <h1 class="device-title">{"My Devices"}</h1>
+                <h1 class="device-title">{"MY DEVICES"}</h1>
                 <div class="my-devices">
+                    <div class="device-entry" id="device-1">
+                        <p class="device-entry-info" id="device-entry-1">{"Wallet | 882aa4d1ddfffff | This is my wallet and it's very important"}</p>
+                        <a href="#" class="remove">{"X"}</a>
+                    </div>
+                    <div class="device-entry" id="device-1">
+                        <p class="device-entry-info" id="device-entry-1">{"Wallet | 882aa4d1ddfffff | This is my wallet and it's very important"}</p>
+                        <a href="#" class="remove">{"X"}</a>
+                    </div>
+                    <div class="device-entry" id="device-1">
+                        <p class="device-entry-info" id="device-entry-1">{"Wallet | 882aa4d1ddfffff | This is my wallet and it's very important"}</p>
+                        <a href="#" class="remove">{"X"}</a>
+                    </div>
                 </div>
             </div>
         </div>
