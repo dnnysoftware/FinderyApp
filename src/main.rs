@@ -68,23 +68,35 @@ fn about() -> Html {
                     <div class="about-info">
                         <h3 class="about-text" id="company-name">{"Findery - Foundry Digital LLC."}</h3>
                         <h3 class="about-text" id="company-address">{"350 East Ave SUITE 201, Rochester, NY 14604"}</h3>
-                        <p class="about-text" id="company-summary">{"The groundbreaking blockchain geopositional solution, tasked to help you 
-                        find your belongings in any environmenet worldwide. You don’t need bluetooth or WiFi only the people’s network.
+                        <p class="about-text" id="company-summary">{"The groundbreaking blockchain gps solution, tasked to help you 
+                        find your belongings in any environment worldwide. You don’t need bluetooth or WiFi only the people’s network.
                         Helium & Findery allows you to find your items over long distances while providing a environmentally friendly 
                         approach for server-side tracking.
                         "}</p>
                     </div>
                     <div class="about-circle-info">
                         <div class="circle-about-data">
+                            <img class="about-images" id="world-wide" src="globepng.png" alt="Worldwide"/>
                         </div>
                         <div class="circle-about-data">
+                            <img class="about-images" id="lost-items" src="lostpng.png" alt="Lost Items"/>
                         </div>
                         <div class="circle-about-data">
+                            <img class="about-images" id="low-energy" src="sustainable.png" alt="Low Energy"/>
                         </div>
                         <div class="circle-about-data">
+                            <img class="about-images" id="iot-img" src="IoT-icon.png" alt="IoT"/>
                         </div>
                         <div class="circle-about-data">
+                            <img class="about-images" id="long-distance" src="distanceone.png" alt="Long Distance"/>
                         </div>
+                    </div>
+                    <div class="description-about-images">
+                        <h4 class="desc-img">{"Worldwide"}</h4>
+                        <h4 class="desc-img">{"Find Belongings"}</h4>
+                        <h4 class="desc-img">{"Low Energy"}</h4>
+                        <h4 class="desc-img">{"Multi Purpose IoT"}</h4>
+                        <h4 class="desc-img">{"Long Distance"}</h4>
                     </div>
                 </div>
             </div>

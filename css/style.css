@@ -344,11 +344,32 @@ label {
 
 .circle-about-data {
 	position: relative;
-	width: 12vw;
-	height: 12vw;
+	width: 13vw;
+	height: 13vw;
 	background: #fff;
 	border-bottom: 9pt solid #FEB729;
     border-radius: 50%;
 	cursor: pointer;
-  	
+}
+
+.about-images {
+	position: relative;
+	width: 8vw;
+	height: 8vw;
+	top: 15%;
+	left: 18%;
+}
+
+.description-about-images {
+	position: relative;
+	top: 30px;
+	display: flex;
+    justify-content: space-between;
+	padding-left: 14%;
+	padding-right: 12%;
+}
+
+.desc-img {
+	color: #fff;
+	font-size: 1.4vw;
 }
