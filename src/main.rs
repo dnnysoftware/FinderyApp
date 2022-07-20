@@ -224,27 +224,27 @@ fn home() -> Html {
                     <div class="gps-data-output-table search-block">
                         <table>
                             <tr>
-                                <th>{"Device Name:"}</th>
+                                <th>{"DEVICE NAME:"}</th>
                                 <td><input class="search-results" id="search-name-result" type="text"/></td>
                             </tr>
                             <tr>
-                                <th>{"Description:"}</th>
+                                <th>{"DESCRIPTION:"}</th>
                                 <td><input class="search-results" id="search-desc-result" type="text"/></td>
                             </tr>
                             <tr>
-                                <th>{"Latitude:"}</th>
+                                <th>{"LATITUDE:"}</th>
                                 <td><input class="search-results" id="search-lat-result" type="text"/></td>
                             </tr>
                             <tr>
-                                <th>{"Longitude:"}</th>
+                                <th>{"LONGITUDE"}</th>
                                 <td><input class="search-results" id="search-long-result" type="text"/></td>
                             </tr>
                             <tr>
-                                <th>{"Battery Life:"}</th>
+                                <th>{"BATTERY LIFE:"}</th>
                                 <td><input class="search-results" id="search-life-result" type="text"/></td>
                             </tr>
                             <tr>
-                                <th>{"Time Stamp:"}</th>
+                                <th>{"TIMESTAMP:"}</th>
                                 <td><input class="search-results" id="search-time-result" type="text"/></td>
                             </tr>
                         </table>
