@@ -210,7 +210,7 @@ function makeClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_20(arg0, arg1, arg2) {
-    wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h17f57154c81f3bc8(arg0, arg1, addHeapObject(arg2));
+    wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h516633c624cd03b0(arg0, arg1, addHeapObject(arg2));
 }
 
 function makeMutClosure(arg0, arg1, dtor, f) {
@@ -247,7 +247,7 @@ function addBorrowedObject(obj) {
 }
 function __wbg_adapter_23(arg0, arg1, arg2) {
     try {
-        wasm._dyn_core__ops__function__FnMut___A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h5f29c12987e274e0(arg0, arg1, addBorrowedObject(arg2));
+        wasm._dyn_core__ops__function__FnMut___A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h1c9dffd841fdaa11(arg0, arg1, addBorrowedObject(arg2));
     } finally {
         heap[stack_pointer++] = undefined;
     }
@@ -331,9 +331,9 @@ function getImports() {
         const ret = getObject(arg0);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_is_undefined = function(arg0) {
-        const ret = getObject(arg0) === undefined;
-        return ret;
+    imports.wbg.__wbindgen_number_new = function(arg0) {
+        const ret = arg0;
+        return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_number_get = function(arg0, arg1) {
         const obj = getObject(arg1);
@@ -341,9 +341,9 @@ function getImports() {
         getFloat64Memory0()[arg0 / 8 + 1] = isLikeNone(ret) ? 0 : ret;
         getInt32Memory0()[arg0 / 4 + 0] = !isLikeNone(ret);
     };
-    imports.wbg.__wbindgen_number_new = function(arg0) {
-        const ret = arg0;
-        return addHeapObject(ret);
+    imports.wbg.__wbindgen_is_undefined = function(arg0) {
+        const ret = getObject(arg0) === undefined;
+        return ret;
     };
     imports.wbg.__wbg_error_09919627ac0992f5 = function(arg0, arg1) {
         try {
@@ -575,12 +575,12 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper5561 = function(arg0, arg1, arg2) {
-        const ret = makeClosure(arg0, arg1, 396, __wbg_adapter_20);
+    imports.wbg.__wbindgen_closure_wrapper5811 = function(arg0, arg1, arg2) {
+        const ret = makeClosure(arg0, arg1, 421, __wbg_adapter_20);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper8606 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 417, __wbg_adapter_23);
+    imports.wbg.__wbindgen_closure_wrapper8678 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 440, __wbg_adapter_23);
         return addHeapObject(ret);
     };
     imports['./snippets/finderyapp-21dac3f81e495f66/js/devicemap.js'] = __wbg_star0;
@@ -617,7 +617,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('finderyapp-d6b51e141f67a8cf_bg.wasm', import.meta.url);
+        input = new URL('finderyapp-996582e3e5bd91e6_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

@@ -2,6 +2,9 @@ use yew::prelude::*;
 use web_sys::HtmlInputElement;
 use wasm_bindgen::prelude::*;
 use yew_router::prelude::*;
+use mongodb::{Client, options::ClientOptions};
+use mongodb::bson::{doc, Document, from_document};
+use mongodb::options::*;
 
 mod device;
 
@@ -30,6 +33,39 @@ fn build_device(name: &String) -> device::Device{
         device_id: 1, //Hard coded for now
     }
 }
+
+
+async fn search(name: String)-> Result<device::Device, mongodb::error::Error>{
+
+    //before we get data
+
+    let mut dev = build_device(&name);
+
+    //after we get data
+
+    let client_uri = String::from("mongodb+srv://FinderyApp:FinderyApp@cluster0.f6fjujq.mongodb.net");
+
+    //Connecting to database
+    let client_options = ClientOptions::parse_with_resolver_config(&client_uri, ResolverConfig::cloudflare()).await?;
+    let client = Client::with_options(client_options)?;
+    let modules = client.database("FinderyApp").collection("Modules");
+
+    //Finding the correct element
+    let query = doc!{"TrackerID": dev.device_id};
+    let find_options = FindOptions::builder().sort(doc!{"TrackerID": dev.device_id}).build();
+    let mut cursor = modules.find(query, find_options).await?;
+
+    //Getting the values
+    let mut counter = 0;
+    while let Some(result) = cursor.next().await {
+        let dev = from_document(result?);
+    }
+
+    //returning initial device
+    OK(dev)
+
+}
+
 
 #[wasm_bindgen(module = "/js/devicemap.js")]
 extern "C" {
